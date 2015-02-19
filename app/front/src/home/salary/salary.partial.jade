@@ -1,0 +1,8 @@
+div(ng-controller="Home.SalaryController as SalaryController")
+  label Hourly Salary:
+  input(ng-model="hourly" ng-init="hourly=0")
+  p You make ${{hourly * 40}} a week, ${{hourly * 173.33}} a month, and ${{hourly * 2080}} a year.
+  ul
+    li(ng-repeat="phone in phones | filter:query")
+      span {{phone.name}}
+      p {{phone.snippet}}

@@ -1,0 +1,36 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": ".",
+      "name" : "config",
+      "folder_exclude_patterns" : [ "*" ],
+      "file_include_patterns" : [
+        "gulpfile.js",
+        "bower.json",
+        "package.json",
+        ".gitignore",
+        "*sublime-project",
+        "Procfile",
+        "Readme.md"
+      ]
+		},
+    {
+      "path": "gulp-tasks",
+      "name" : "gulp-tasks"
+    },
+    {
+      "path" : "app/front/src",
+      "name" : "front"
+    },
+    {
+      "path" : "app/back",
+      "name" : "back"
+    }
+	],
+  "settings" : {
+    "tab_size" : 2,
+    "convert_tabs_to_spaces" : true
+  }
+}

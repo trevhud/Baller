@@ -1,0 +1,32 @@
+{
+  "common" : {
+    "paths" : {
+      "front" : "front/public",
+      "favicon" : "common/images/favicon.ico"
+    }
+  },
+  "server" : {
+    "port" : 1336
+  },
+  "processArgv" : {
+    "cache" : true,
+    "compress" : false,
+    "minify" : true,
+    "liveReload" : true
+  },
+  "app" : {
+    "routes" : {
+      "frontEnd" : {
+        "angularPaths" : [
+          "/"
+        ],
+        "static" : {
+          "route" : "/public",
+          "config" : {
+            "maxAge" : 360000
+          }
+        }
+      }
+    }
+  }
+}

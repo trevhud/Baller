@@ -1,2 +1,6 @@
-# Include your project-specific ignores in this file
-# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+node_modules
+.DS_Store
+*sublime-workspace
+app/front/public
+bower_components
+npm-debug.log

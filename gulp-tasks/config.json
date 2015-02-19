@@ -1,0 +1,233 @@
+{
+  "locals" : {
+    "publicPath" : "public"
+  },
+  "common" : {
+    "paths" : {
+      "front" : {
+        "src" : "app/front/src",
+        "public" : "app/front/public"
+      },
+      "back" : {
+        "main" : "app/back"
+      }
+    },
+    "selectors" : {
+      "spec" : {
+        "all" : ["app/front/src/**/*-spec.js", "app/back/**/*.spec.js"],
+        "file" : "**/*.spec.js"
+      },
+      "front" : {
+        "images" : ["app/front/src/**/*.{ico,png,jpg,jpeg}"],
+        "scripts" : [
+          "app/front/src/**/*.module.js",
+          "app/front/src/**/*.js",
+          "app/front/src/**/*.*.js",
+          "!app/front/src/**/*.spec.js"
+        ],
+        "templates" : ["app/front/src/**/*.template.jade"],
+        "html" : ["app/front/src/**/*.jade", "!app/front/src/**/*.template.jade"],
+        "views" : ["app/front/src/**/*.jade", "!app/front/src/**/*.template.jade", "!app/front/src/**/*.partial.jade"],
+        "stylesheets" : ["app/front/src/main.less"]
+      },
+      "back" : {
+        "scripts" : ["gulpfile.js", "gulp-tasks/*.js", "app/back/**/*.js", "!app/back/**/*.spec.js"]
+      }
+    }
+  },
+
+  "init" : {
+    "dir" : {
+
+      "dir2obj" : {
+        "app" : {
+          "front" : {
+            "src" : {
+              "index.jade" : "",
+              "main.partial.jade": "",
+              "head.partial.jade" : "",
+              "ng-app" : {
+                "ng-app.module.js" : "",
+                "ng-app.config.js" : "",
+                "ng-app.run.js" : ""
+              },
+              "common" : {
+                "images" : ""
+              }
+            }
+          },
+          "back" : {
+            "index.js" : "",
+            "server" : {
+              "index.js" : ""
+            },
+            "app" : {
+              "index.js" : "",
+              "middleware" : {
+                "index.js" : ""
+              },
+              "routes" : {
+                "index.js" : "",
+                "_front-end.js" : ""
+              },
+              "controllers" : {}
+            },
+            "models" : {},
+            "DB" : {
+              "index.js" : ""
+            },
+            "config.json" : "",
+            "process-argv" : {
+              "index.js" : ""
+            }
+          }
+        }
+
+      }
+      
+    },
+
+    "herokuBuildpack" : {
+      "buildpackUrl" : "https://github.com/appstack/heroku-buildpack-nodejs-gulp"
+    }
+  },
+
+  "lint" : {
+    "common" : {
+      "bitwise": true,
+      "camelcase": true,
+      "eqeqeq": true,
+      "immed": true,
+      "latedef": "nofunc",
+      "newcap": true,
+      "noarg": true,
+      "nonbsp": true,
+      "quotmark": "single",
+      "undef": true,
+      "strict": true,
+      "loopfunc": true,
+      "expr" : true,
+      "globalstrict" : true
+    },
+    "node" : {
+      "node": true
+    },
+    "spec" : {
+      "node" : true,
+      "globals" : {
+         "afterEach": false,
+         "beforeEach": false,
+         "describe": false,
+         "xdescribe" : false,
+         "ddescribe" : false,
+         "it" : false,
+         "iit" : false,
+         "xit" : false,
+         "spyOn" : false,
+         "spyOnEvent" : false,
+         "pending" : false,
+         "expect" : false,
+         "jasmine" : false
+      }
+    },
+    "front" : {
+      "devel" : true,
+      "browser" : true,
+      "globals" : {
+        "angular" : true
+      }
+    }
+  },
+
+  "test" : {
+    "common" : {
+      "jasmine" : {
+        "includeStackTrace": true,
+        "verbose": true
+      }
+    }
+  },
+
+  "build" : {
+
+    "scripts" : {
+      "wrapper" : {
+        "header" : "\n//Begin file: ${filename}\n;(function() {\n",
+        "footer" : "\n})();\n//End file: ${filename}\n"
+      },
+      "mainBowerFiles" : {
+        "paths": {
+          "bowerDirectory": "./node_modules"
+        }
+      },
+      "order" : [
+        "**/*jquery*",
+        "**/*moment*",
+        "**/*lodash*" ,
+        "**/*angular.*",
+        "**/*angular-ui-router*",
+        "**/*bootstrap*",
+        "**/*.vendor.js ",
+        "**/*.module.js",
+        "**/*"
+      ]
+    },
+
+    "template" : {
+      "wrapper" : {
+        "header" : "\n<script type=\"text/ng-template\" id=\"${filename}\">\n",
+        "footer" : "\n</script>\n"
+      }
+    },
+
+    "stylesheets" : {
+      "bower" : [
+        "node_modules/bootstrap/dist/css/bootstrap.css"
+      ]
+    }
+
+  },
+
+  "liveReload" : {
+    "lr" : {
+      "port" : 35729
+    }
+  },
+
+  "default" : {
+    "argv" : {
+      "watch" : true,
+      "build" : true,
+      "lint" : true,
+      "test" : true,
+      "server" : true,
+      "liveReload" : true
+    }
+  },
+
+  "watch" : {
+    "argv" : {
+      "images" : true,
+      "stylesheets" : true,
+      "templates" : true,
+      "html" : true,
+
+      "lint" : true,
+      "test" : true,
+
+      "front" : true,
+      "frontLint" : true,
+      "frontTest" : true,
+      "buildScripts" : true,
+
+      "back" : true,
+      "backLint" : true,
+      "backTest" : true,
+      "serverRestart" : true,
+
+      "spec" : true,
+      "specLint" : true
+
+    }
+  }
+}

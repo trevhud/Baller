@@ -1,0 +1,13 @@
+html(ng-app="ng-app")
+
+  head
+
+    include head.partial.jade
+
+    link(rel="stylesheet" type="text/css" href="#{config.locals.publicPath}/#{pkg.name}.min.css")
+
+  body
+    include main.partial.jade
+
+    script(src="#{config.locals.publicPath}/#{pkg.name}.min.js")
+    p#templates(style="display: none;") !{templates}
