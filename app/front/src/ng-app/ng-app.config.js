@@ -24,7 +24,9 @@ angular.module('ng-app')
               templateUrl: 'home/home.template.html'
             }
           }
+
         });
+
       }
 
     }

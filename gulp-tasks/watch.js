@@ -26,7 +26,8 @@ gulp.task('watch-images', function() {
 });
 
 gulp.task('watch-stylesheets', function() {
-  return gulp.watch(config.common.selectors.front.stylesheets,
+  return gulp.watch(config.common.selectors.front.stylesheets.watch,
+    { interval: 500 },
     ['build-stylesheets']);
 });
 

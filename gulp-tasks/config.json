@@ -28,7 +28,13 @@
         "templates" : ["app/front/src/**/*.template.jade"],
         "html" : ["app/front/src/**/*.jade", "!app/front/src/**/*.template.jade"],
         "views" : ["app/front/src/**/*.jade", "!app/front/src/**/*.template.jade", "!app/front/src/**/*.partial.jade"],
-        "stylesheets" : ["app/front/src/main.less"]
+        "stylesheets" : {
+          "build": ["app/front/src/main.less"],
+          "watch": ["app/front/src/**/*.less"]
+        },
+        "vendorStylesheets" : [
+          "app/front/vendor/bootstrap/css/bootstrap.css"
+        ]
       },
       "back" : {
         "scripts" : ["gulpfile.js", "gulp-tasks/*.js", "app/back/**/*.js", "!app/back/**/*.spec.js"]

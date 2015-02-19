@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('ng-app')
 
   .run(function() {

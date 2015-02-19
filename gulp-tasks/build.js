@@ -51,7 +51,7 @@ gulp.task('build-scripts', function() {
     .pipe(wrapper({
       header: function(file) {
         var fileName = file.path.replace('.vendor.js','.js');
-        return '\n// Begin file: ' + fileName + '\n;(function() {\n';
+        return '\n// Begin file: ' + fileName + '\n;(function() {\n' + '"use strict";\n';
       },
       footer: function(file) {
         var fileName = file.path.replace('.vendor.js','.js');
@@ -68,27 +68,18 @@ gulp.task('build-scripts', function() {
 });
 
 gulp.task('build-stylesheets', function() {
-  var vendorStylesheets = getMatchingFiles(/.less$/);
+  var bowerStylesheets = getMatchingFiles(/.less$/);
 
   // non-minified
-  gulp
-    .src(vendorStylesheets)
-    .pipe(addSrc(config.common.selectors.front.stylesheets))
-    .pipe(less())
-    // .pipe(addSrc(config.build.stylesheets.bower))
-    // .pipe(gulp.dest(config.common.paths.front.public))
-    .pipe(concat(pkg.name + '.css'))
-    .pipe(gulp.dest(config.common.paths.front.public));
-
-  // minified
   return gulp
-    .src(vendorStylesheets)
-    .pipe(addSrc(config.common.selectors.front.stylesheets))
+    .src(bowerStylesheets)
+    .pipe(addSrc(config.common.selectors.front.stylesheets.build))
     .pipe(less())
+    .pipe(addSrc(config.common.selectors.front.vendorStylesheets))
+    .pipe(concat(pkg.name + '.css'))
+    .pipe(gulp.dest(config.common.paths.front.public))
     .pipe(minifyCSS())
     .pipe(rename({ extname: '.min.css' }))
-    // .pipe(gulp.dest(config.common.paths.front.public))
-    .pipe(concat(pkg.name + '.min.css'))
     .pipe(gulp.dest(config.common.paths.front.public))
     .pipe(reload());
 
